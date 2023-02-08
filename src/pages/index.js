@@ -2,9 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
 import Header from '../components/Header'
-import Gallery from './Gallery'
-import Login from './Login'
-import Register from './Register'
+import Gallery from '../components/Gallery'
+import Login from '../components/Login'
+import Register from '../components/Register'
 
 
 
