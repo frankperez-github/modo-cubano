@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { useState } from 'react'
 import Header from '../components/Header'
 import Gallery from '../components/Gallery'
