@@ -96,6 +96,7 @@ export default function Home() {
       {
         exists = true;
         product.quant++;
+        product.price+=modelProd.price;
       }
     });
 
