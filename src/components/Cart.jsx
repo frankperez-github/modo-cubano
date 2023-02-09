@@ -1,7 +1,9 @@
-function Cart({products}) {
-    var total = 0;
-    var quant = 0;
+import { useState } from "react";
+
+function Cart({cartProducts}) {
+    const[total, setTotal] = useState(0)
     return(
+        cartProducts === undefined ? <h2 className="noOrders">No Products yet</h2> :
         <div className="Cart">
             <table>
                 <thead>
@@ -10,11 +12,11 @@ function Cart({products}) {
                     <td>Precio</td>
                 </thead>
                 <tbody>
-                    {products.map((product)=>(
+                    {cartProducts.map((product)=>(
                         <tr key={product.id}>
                             <td>{product.name}</td>
-                            <td>2</td>
-                            <td>{product.price*2}</td>
+                            <td>{product.quant}</td>
+                            <td>{product.price}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -24,6 +26,7 @@ function Cart({products}) {
                     <td>{total}</td>
                 </tfoot>
             </table>
+            <button className=" payOrder createOrder">Crear Orden</button>
         </div>
     );
 

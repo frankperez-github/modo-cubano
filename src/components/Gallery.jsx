@@ -1,6 +1,6 @@
 import Product from "./Product";
 
-function Gallery({products}) 
+function Gallery({products, setCart}) 
 {
     return(
         <div className="container">

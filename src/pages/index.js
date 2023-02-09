@@ -71,6 +71,7 @@ export default function Home() {
     }
   ]
   const[route, setRoute] = useState("/");
+  const [cartProducts, setCart] = useState([]);
   const orders =[ 
     {
       id: 1,
@@ -111,12 +112,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header setRoute={setRoute}/>
+      <Header setRoute={setRoute} route={route}/>
       <main >
-        {route==="/" && <Gallery products={products}/>}
+        {route==="/" && <Gallery products={products} setCart={setCart}/>}
         {route==="Login" && <Login setRoute={setRoute}/>}
         {route==="Register" && <Register setRoute={setRoute}/>}
-        {route==="Cart" && <Cart products={products}/>}
+        {route==="Cart" && <Cart products={cartProducts}/>}
         {route==="Orders" && <Orders orders={orders}/>}
 
 

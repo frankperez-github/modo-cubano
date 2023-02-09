@@ -71,6 +71,12 @@ button:hover
   color: white;
 }
 
+#Selected
+{
+  background-color: rgb(129, 78, 164);
+  color: white;
+}
+
 form
 {
   display: flex;
@@ -183,6 +189,7 @@ td
 }
 .orderProducts
 {
+
   font-size: 18px;
 }
 .orderPrices
@@ -198,4 +205,11 @@ td
   padding: 1%;
   margin: 0% 25%;
   margin-top: 10%;
+}
+.createOrder
+{
+  margin-left: 60%;
+  width: 30%;
+  margin-top: 0%;
+  margin-bottom: 10%;
 }

@@ -1,4 +1,4 @@
-function Header({setRoute})
+function Header({setRoute, route})
 {
     return(
         <header>
@@ -6,10 +6,10 @@ function Header({setRoute})
                 <h1>Modo cubano</h1>
             </a>
             <div className="headerButtons loginButtons" >
-                <button className="loginButton" onClick={()=>setRoute("Orders")}>Órdenes</button>
-                <button className="loginButton" onClick={()=>setRoute("Cart")}>Carrito</button>
-                <button className="loginButton" onClick={()=>setRoute("Login")}>Iniciar Sesion</button>
-                <button className="loginButton" onClick={()=>setRoute("Register")}>Registrarse</button>
+                <button id={route === "Orders"&&"Selected"} className="loginButton" onClick={()=>setRoute("Orders")}>Órdenes</button>
+                <button id={route === "Cart"&&"Selected"} className="loginButton" onClick={()=>setRoute("Cart")}>Carrito</button>
+                <button id={route === "Login"&&"Selected"} className="loginButton" onClick={()=>setRoute("Login")}>Iniciar Sesion</button>
+                <button id={route === "Register"&&"Selected"} className="loginButton" onClick={()=>setRoute("Register")}>Registrarse</button>
             </div>
         </header>
     );
