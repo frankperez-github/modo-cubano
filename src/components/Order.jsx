@@ -10,7 +10,7 @@ function Order({order})
 
                     <div className="orderProducts">
                         {order.products.map((product)=>(
-                            <tr>
+                            <tr key={product}>
                                 {product}
                             </tr>
                         ))}
@@ -19,7 +19,7 @@ function Order({order})
                 <table>
                     <div className="orderPrices">
                         {order.prices.map((price)=>(
-                            <tr>
+                            <tr key={price}>
                                 {price}
                             </tr>
                         ))}
