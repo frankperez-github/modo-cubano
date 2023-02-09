@@ -72,6 +72,18 @@ export default function Home() {
   ]
   const[route, setRoute] = useState("/");
   const [cartProducts, setCart] = useState([]);
+
+  function updateCart(id)
+  {
+    var modelProd = products[id-1];
+    const product = {
+      name: modelProd.name,
+      quant: 1,
+      price: modelProd.price
+    }
+    setCart([product,...cartProducts]);
+  }
+
   const orders =[ 
     {
       id: 1,
@@ -114,13 +126,11 @@ export default function Home() {
 
       <Header setRoute={setRoute} route={route}/>
       <main >
-        {route==="/" && <Gallery products={products} setCart={setCart}/>}
+        {route==="/" && <Gallery products={products} updateCart={updateCart}/>}
         {route==="Login" && <Login setRoute={setRoute}/>}
         {route==="Register" && <Register setRoute={setRoute}/>}
-        {route==="Cart" && <Cart products={cartProducts}/>}
+        {route==="Cart" && <Cart cartProducts={cartProducts}/>}
         {route==="Orders" && <Orders orders={orders}/>}
-
-
       </main>
 
     </>

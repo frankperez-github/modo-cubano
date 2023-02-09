@@ -40,6 +40,10 @@ header
 }
 .logo
 {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(138, 128, 137);
+  margin: 0;
   margin-left: 5%;
 }
 .headerButtons

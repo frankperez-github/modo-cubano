@@ -9,8 +9,8 @@ function Order({order})
                 <table>
 
                     <div className="orderProducts">
-                        {order.products.map((product)=>(
-                            <tr key={product}>
+                        {order.products.map((product, index)=>(
+                            <tr key={index}>
                                 {product}
                             </tr>
                         ))}
@@ -18,8 +18,8 @@ function Order({order})
                 </table>
                 <table>
                     <div className="orderPrices">
-                        {order.prices.map((price)=>(
-                            <tr key={price}>
+                        {order.prices.map((price, index)=>(
+                            <tr key={index}>
                                 ${price}
                             </tr>
                         ))}

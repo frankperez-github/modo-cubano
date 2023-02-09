@@ -1,12 +1,12 @@
 import Product from "./Product";
 
-function Gallery({products, setCart}) 
+function Gallery({products, updateCart}) 
 {
     return(
         <div className="container">
             <div className="products-gallery">
-                {products.map((product) => (
-                    <Product key={product.id} product={product}/>
+                {products.map((product, index) => (
+                    <Product key={index} product={product} updateCart={updateCart}/>
                 ))}
             </div>
         </div>
