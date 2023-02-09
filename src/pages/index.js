@@ -4,6 +4,8 @@ import Header from '../components/Header'
 import Gallery from '../components/Gallery'
 import Login from '../components/Login'
 import Register from '../components/Register'
+import Cart from '@/components/Cart'
+import Orders from '@/components/Orders'
 
 
 
@@ -69,6 +71,7 @@ export default function Home() {
     }
   ]
   const[route, setRoute] = useState("/");
+
   return (
     <>
 
@@ -84,6 +87,10 @@ export default function Home() {
         {route==="/" && <Gallery products={products}/>}
         {route==="Login" && <Login setRoute={setRoute}/>}
         {route==="Register" && <Register setRoute={setRoute}/>}
+        {route==="Cart" && <Cart products={products}/>}
+        {route==="Orders" && <Orders />}
+
+
       </main>
 
     </>
