@@ -20,17 +20,18 @@ function Order({order})
                     <div className="orderPrices">
                         {order.prices.map((price)=>(
                             <tr key={price}>
-                                {price}
+                                ${price}
                             </tr>
                         ))}
                     </div>
                 </table>
             </div>
-                <tr>
-                    <td></td>
-                    <td>Total: </td>
-                    <td>${order.total}</td>
-                </tr>
+            <tr>
+                <td></td>
+                <td>Total: </td>
+                <td>${order.total}</td>
+            </tr>
+            <button className="payOrder">Pagar Orden</button>
         </div>
     );
 }

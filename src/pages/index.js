@@ -71,7 +71,36 @@ export default function Home() {
     }
   ]
   const[route, setRoute] = useState("/");
-
+  const orders =[ 
+    {
+      id: 1,
+      products: [
+          "casa",
+          "otro",
+          "y otro"
+      ],
+      prices: [
+          "5",
+          "1.5",
+          "2.0"
+      ],
+      total: 500
+    },
+    {
+      id: 1,
+      products: [
+          "casa",
+          "otro",
+          "y otro"
+      ],
+      prices: [
+          "5",
+          "1.5",
+          "2.0"
+      ],
+      total: 500
+    }
+  ]
   return (
     <>
 
@@ -88,7 +117,7 @@ export default function Home() {
         {route==="Login" && <Login setRoute={setRoute}/>}
         {route==="Register" && <Register setRoute={setRoute}/>}
         {route==="Cart" && <Cart products={products}/>}
-        {route==="Orders" && <Orders />}
+        {route==="Orders" && <Orders orders={orders}/>}
 
 
       </main>

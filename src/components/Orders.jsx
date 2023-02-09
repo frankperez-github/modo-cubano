@@ -2,23 +2,11 @@ import Order from "./Order";
 
 function Orders({orders})
 {
-    const order = {
-            id: 1,
-            products: [
-                "casa",
-                "otro",
-                "y otro"
-            ],
-            prices: [
-                "5",
-                "1.5",
-                "2.0"
-            ],
-            total: 500
-        }
     return(
-
-        <Order order={order}/>
+        orders === undefined ? <h2 className="noOrders">No orders yet</h2> :
+        orders.map((order)=>(
+            <Order key={order.id} order={order}/>
+        )) 
     );
 }
 export default Orders;
