@@ -25,7 +25,7 @@ export default function Home() {
       name: "Name2",
       image:"/next.svg",
       description: "Esto es una hermosa descripcion de un producto que es incluso mas caro que el anterior",
-      price: "2000"
+      price: 2000
     },
     {
       id: 1,
@@ -89,12 +89,26 @@ export default function Home() {
   function updateCart(id)
   {
     var modelProd = products[id-1];
-    const product = {
-      name: modelProd.name,
-      quant: 1,
-      price: modelProd.price
+    var exists = false;
+    
+    cartProducts.forEach(product => {
+      if(product.name === modelProd.name)
+      {
+        exists = true;
+        product.quant++;
+      }
+    });
+
+    if(!exists)
+    {
+      const product = {
+        name: modelProd.name,
+        quant: 1,
+        price: modelProd.price
+      }
+      console.log(product);
+      setCart([product,...cartProducts]);
     }
-    setCart([product,...cartProducts]);
   }
 
   const orders =[ 

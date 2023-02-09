@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 function Cart({cartProducts, totalItems, totalCash}) {
 
@@ -18,7 +17,7 @@ function Cart({cartProducts, totalItems, totalCash}) {
                             <td>{product.quant}</td>
                             <td>{product.price}</td>
                         </tr>
-                        ))}
+                    ))}
                     <tr>
                         <td>Total</td>
                         <td>{totalItems}</td>
@@ -26,7 +25,12 @@ function Cart({cartProducts, totalItems, totalCash}) {
                     </tr>
                 </tbody>
             </table>
-            <button className=" payOrder createOrder">Crear Orden</button>
+                <div className="addressInput">
+                    <h3>Enviar a: </h3>
+                    <input className="sendInput" type="text" placeholder="Nombre"/>
+                    <input className="sendInput" type="text" placeholder="Dirección"/>
+                </div>
+                <button className=" payOrder createOrder">Crear Orden</button>
         </div>
     );
 
