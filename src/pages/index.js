@@ -18,7 +18,7 @@ export default function Home() {
       name: "Name",
       image:"/next.svg",
       description: "Esto es una hermosa descripcion de este producto que es muy caro",
-      price: "100"
+      price: 100
     },
     {
       id: 2,
@@ -32,46 +32,59 @@ export default function Home() {
       name: "Name",
       image:"/next.svg",
       description: "Esto es una hermosa descripcion de este producto que es muy caro",
-      price: "100"
+      price: 100
     },
     {
       id: 2,
       name: "Name2",
       image:"/next.svg",
       description: "Esto es una hermosa descripcion de un producto que es incluso mas caro que el anterior",
-      price: "2000"
+      price: 2000
     },
     {
       id: 1,
       name: "Name",
       image:"/next.svg",
       description: "Esto es una hermosa descripcion de este producto que es muy caro",
-      price: "100"
+      price: 100
     },
     {
       id: 2,
       name: "Name2",
       image:"/next.svg",
       description: "Esto es una hermosa descripcion de un producto que es incluso mas caro que el anterior",
-      price: "2000"
+      price: 2000
     },
     {
       id: 1,
       name: "Name",
       image:"/next.svg",
       description: "Esto es una hermosa descripcion de este producto que es muy caro",
-      price: "100"
+      price: 100
     },
     {
       id: 2,
       name: "Name2",
       image:"/next.svg",
       description: "Esto es una hermosa descripcion de un producto que es incluso mas caro que el anterior",
-      price: "2000"
+      price: 2000
     }
   ]
   const[route, setRoute] = useState("/");
+
   const [cartProducts, setCart] = useState([]);
+  const[totalCash, setTotalCash] = useState(0);
+  const[totalItems, setTotalItems] = useState(0)
+
+  function updateCash(price)
+  {
+    setTotalCash(+totalCash+price);
+  }
+
+  function updateItems(quant)
+  {
+    setTotalItems(totalItems+quant);
+  }
 
   function updateCart(id)
   {
@@ -124,12 +137,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header setRoute={setRoute} route={route}/>
+      <Header setRoute={setRoute} route={route} totalItems={totalItems}/>
       <main >
-        {route==="/" && <Gallery products={products} updateCart={updateCart}/>}
+        {route==="/" && <Gallery products={products} updateCart={updateCart} updateCash={updateCash} updateItems={updateItems}/>}
         {route==="Login" && <Login setRoute={setRoute}/>}
         {route==="Register" && <Register setRoute={setRoute}/>}
-        {route==="Cart" && <Cart cartProducts={cartProducts}/>}
+        {route==="Cart" && <Cart cartProducts={cartProducts} totalItems={totalItems} totalCash={totalCash}/>}
         {route==="Orders" && <Orders orders={orders}/>}
       </main>
 
