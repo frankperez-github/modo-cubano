@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import CartProductsContext from "@/context/CartProductsContext";
 
-function Cart({cartProducts, totalItems, totalCash}) {
+function Cart() {
+
+    const {cartProducts, totalCash, totalItems} = useContext(CartProductsContext);
 
     return(
         cartProducts === [] ? <h2 className="noOrders">No Products yet</h2> :

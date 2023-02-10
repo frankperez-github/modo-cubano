@@ -6,110 +6,13 @@ import Login from '../components/Login'
 import Register from '../components/Register'
 import Cart from '@/components/Cart'
 import Orders from '@/components/Orders'
-
-
+import { CartProductsProvider } from '@/context/CartProductsContext'
 
 
 export default function Home() {
  
-  const products = [
-    {
-      id: 1,
-      name: "Name",
-      image:"/next.svg",
-      description: "Esto es una hermosa descripcion de este producto que es muy caro",
-      price: 100
-    },
-    {
-      id: 2,
-      name: "Name2",
-      image:"/next.svg",
-      description: "Esto es una hermosa descripcion de un producto que es incluso mas caro que el anterior",
-      price: 2000
-    },
-    {
-      id: 1,
-      name: "Name",
-      image:"/next.svg",
-      description: "Esto es una hermosa descripcion de este producto que es muy caro",
-      price: 100
-    },
-    {
-      id: 2,
-      name: "Name2",
-      image:"/next.svg",
-      description: "Esto es una hermosa descripcion de un producto que es incluso mas caro que el anterior",
-      price: 2000
-    },
-    {
-      id: 1,
-      name: "Name",
-      image:"/next.svg",
-      description: "Esto es una hermosa descripcion de este producto que es muy caro",
-      price: 100
-    },
-    {
-      id: 2,
-      name: "Name2",
-      image:"/next.svg",
-      description: "Esto es una hermosa descripcion de un producto que es incluso mas caro que el anterior",
-      price: 2000
-    },
-    {
-      id: 1,
-      name: "Name",
-      image:"/next.svg",
-      description: "Esto es una hermosa descripcion de este producto que es muy caro",
-      price: 100
-    },
-    {
-      id: 2,
-      name: "Name2",
-      image:"/next.svg",
-      description: "Esto es una hermosa descripcion de un producto que es incluso mas caro que el anterior",
-      price: 2000
-    }
-  ]
+  
   const[route, setRoute] = useState("/");
-
-  const [cartProducts, setCart] = useState([]);
-  const[totalCash, setTotalCash] = useState(0);
-  const[totalItems, setTotalItems] = useState(0)
-
-  function updateCash(price)
-  {
-    setTotalCash(+totalCash+price);
-  }
-
-  function updateItems(quant)
-  {
-    setTotalItems(totalItems+quant);
-  }
-
-  function updateCart(id)
-  {
-    var modelProd = products[id-1];
-    var exists = false;
-    
-    cartProducts.forEach(product => {
-      if(product.name === modelProd.name)
-      {
-        exists = true;
-        product.quant++;
-      }
-    });
-
-    if(!exists)
-    {
-      const product = {
-        name: modelProd.name,
-        quant: 1,
-        price: modelProd.price
-      }
-      console.log(product);
-      setCart([product,...cartProducts]);
-    }
-  }
 
   const orders =[ 
     {
@@ -141,6 +44,7 @@ export default function Home() {
       total: 500
     }
   ]
+
   return (
     <>
 
@@ -151,14 +55,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header setRoute={setRoute} route={route} totalItems={totalItems}/>
-      <main >
-        {route==="/" && <Gallery products={products} updateCart={updateCart} updateCash={updateCash} updateItems={updateItems}/>}
-        {route==="Login" && <Login setRoute={setRoute}/>}
-        {route==="Register" && <Register setRoute={setRoute}/>}
-        {route==="Cart" && <Cart cartProducts={cartProducts} totalItems={totalItems} totalCash={totalCash}/>}
-        {route==="Orders" && <Orders orders={orders}/>}
-      </main>
+      <CartProductsProvider>
+        <Header setRoute={setRoute} route={route}/>
+        <main >
+          {route==="/" && <Gallery />}
+          {route==="Login" && <Login setRoute={setRoute}/>}
+          {route==="Register" && <Register setRoute={setRoute}/>}
+          {route==="Cart" && <Cart />}
+          {route==="Orders" && <Orders orders={orders}/>}
+        </main>
+      </CartProductsProvider>
 
     </>
   )

@@ -1,5 +1,10 @@
-function Header({setRoute, route, totalItems})
+import { useContext } from "react";
+import CartProductsContext from "@/context/CartProductsContext";
+
+function Header({setRoute, route})
 {
+    const{totalItems} = useContext(CartProductsContext);
+
     return(
         <header>
             <h1 className="logo" onClick={()=>setRoute("/")}>Modo cubano</h1>

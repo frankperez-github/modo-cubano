@@ -1,7 +1,11 @@
 import Product from "./Product";
+import { useContext } from "react";
+import CartProductsContext from "@/context/CartProductsContext";
 
-function Gallery({products, updateCart, updateCash, updateItems, }) 
+function Gallery() 
 {
+    const{updateCart, products, updateCash, updateItems} = useContext(CartProductsContext);
+
     return(
         <div className="container">
             <div className="products-gallery">
