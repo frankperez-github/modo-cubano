@@ -29,6 +29,7 @@ export const CartProductsProvider = ({children}) =>{
             }
             setId(Id+1);
             setCartProducts([product,...cartProducts]);
+            console.log(cartProducts.length)
         }
         updateItems()
         updateCash()
@@ -121,7 +122,6 @@ export const CartProductsProvider = ({children}) =>{
 
     function updateCash()
     {
-        console.log("cash")
         var totalCash = 0;
         cartProducts.forEach(product => {
             totalCash += product.price*product.quant;
@@ -133,7 +133,6 @@ export const CartProductsProvider = ({children}) =>{
     {
         var totalItems = 0;
         cartProducts.forEach(product => {
-            console.log("items")
             totalItems += product.quant;
         });
         setTotalItems(totalItems);
