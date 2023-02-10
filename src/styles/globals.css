@@ -295,6 +295,14 @@ td
     margin: 6% 10%;
     width: 65%;
   }
+  .orderInfo
+  {
+    margin-left: 0;
+    width: 90%;
+  }
+  .orderProducts{
+    width: 80%;
+  }
   form{
     width: 65%;
     padding: 40% 17.5%;
