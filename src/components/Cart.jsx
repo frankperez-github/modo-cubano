@@ -3,7 +3,7 @@ import CartProductsContext from "@/context/CartProductsContext";
 
 function Cart() {
 
-    const {cartProducts, totalCash, totalItems} = useContext(CartProductsContext);
+    const {cartProducts, totalCash, totalItems, removeCartProduct} = useContext(CartProductsContext);
 
     return(
         cartProducts === [] ? <h2 className="noOrders">No Products yet</h2> :
@@ -13,19 +13,22 @@ function Cart() {
                     <tr>
                         <td>Producto</td>
                         <td>Cantidad</td>
-                        <td>Precio</td>
+                        <td className="totalPrice">Precio</td>
                     </tr>
                     {cartProducts.map((product)=>(
                         <tr key={product.id}>
                             <td>{product.name}</td>
                             <td>{product.quant}</td>
-                            <td>{product.price}</td>
+                            <td className="removeProduct">
+                                {product.price}
+                                <button onClick={()=>(removeCartProduct(product.id))}>Remove</button>
+                            </td>
                         </tr>
                     ))}
                     <tr>
                         <td>Total</td>
                         <td>{totalItems}</td>
-                        <td>{totalCash}</td>
+                        <td className="totalPrice">{totalCash}</td>
                     </tr>
                 </tbody>
             </table>

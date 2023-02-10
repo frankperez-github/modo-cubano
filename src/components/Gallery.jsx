@@ -4,13 +4,13 @@ import CartProductsContext from "@/context/CartProductsContext";
 
 function Gallery() 
 {
-    const{updateCart, products, updateCash, updateItems} = useContext(CartProductsContext);
+    const{products} = useContext(CartProductsContext);
 
     return(
         <div className="container">
             <div className="products-gallery">
                 {products.map((product, index) => (
-                    <Product key={index} product={product} updateCart={updateCart} updateCash={updateCash} updateItems={updateItems}/>
+                    <Product key={index} product={product}/>
                 ))}
             </div>
         </div>

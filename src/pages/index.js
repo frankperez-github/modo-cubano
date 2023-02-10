@@ -10,11 +10,10 @@ import { CartProductsProvider } from '@/context/CartProductsContext'
 
 
 export default function Home() {
- 
   
   const[route, setRoute] = useState("/");
 
-  const orders =[ 
+  const orders = [ 
     {
       id: 1,
       products: [
